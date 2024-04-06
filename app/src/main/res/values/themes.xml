@@ -27,10 +27,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <!--    <style name="Theme.photosGroup3.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+<!--    <style name="Theme.photosGroup3.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <!--    <style name="Theme.photosGroup3.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
-    <!--    main activity-->
+<!--    <style name="Theme.photosGroup3.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+<!--    main activity-->
     <style name="navbar">
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
@@ -45,7 +45,7 @@
 
 
 
-    <!--    image display-->
+<!--    image display-->
     <style name="customBackground">
         <item name="android:backgroundTint">?attr/colorOnSecondary</item>
     </style>
@@ -69,7 +69,7 @@
         <item name="android:backgroundTint">?attr/colorOnSecondary</item>
     </style>
 
-    <!--    selected picture-->
+<!--    selected picture-->
 
     <style name="selectedImg">
         <item name="android:backgroundTint">?attr/colorOnSecondary</item>
