@@ -54,6 +54,7 @@ public class ListAdapterFeaturedPhotos extends ListAdapter{
     }
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //Column_item xml cần sửa giao diện tại đây.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.column_item, parent, false);
         return new ViewHolder(view);
     }
