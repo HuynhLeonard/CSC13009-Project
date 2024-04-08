@@ -75,7 +75,6 @@ public class SelectedViewPagerAdapter extends RecyclerView.Adapter<SelectedViewP
 
         holder.img.setImageBitmap(item.getItemBitmap());
         TemplateView.add(holder);
-        //   holder.txtName.setText(item.getSelectedName());
 
         holder.img.setOnTouchListener((v, event) -> {
             long pressTime = System.currentTimeMillis();

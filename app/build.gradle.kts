@@ -26,6 +26,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        mlModelBinding = true
+    }
 }
 
 dependencies {
@@ -55,4 +58,6 @@ dependencies {
 
     // gms
     implementation ("com.google.android.gms:play-services-tasks:16.0.1")
+
+    implementation ("com.github.Spikeysanju:ZoomRecylerLayout:1.0")
 }

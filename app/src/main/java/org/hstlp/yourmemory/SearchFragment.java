@@ -23,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import www.sanju.zoomrecyclerlayout.ZoomRecyclerLayout;
-
 public class SearchFragment extends ImageDisplay {
 
     static public SearchFragment getInstance() {
