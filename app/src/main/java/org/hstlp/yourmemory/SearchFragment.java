@@ -1,18 +1,28 @@
 package org.hstlp.yourmemory;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSnapHelper;
-import androidx.recyclerview.widget.RecyclerView;
+import www.sanju.zoomrecyclerlayout.ZoomRecyclerLayout;
 
 public class SearchFragment extends ImageDisplay {
 
@@ -42,7 +52,7 @@ public class SearchFragment extends ImageDisplay {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_image_search, container, false);
-        View searchViewLayout = LayoutInflater.from(getContext()).inflate(R.layout.search_flagment, toolbar, false);
+        View searchViewLayout = LayoutInflater.from(getContext()).inflate(R.layout.search_fragment, toolbar, false);
         toolbar = rootView.findViewById(R.id.toolbar1);
         toolbar.addView(searchViewLayout);
         return rootView;
