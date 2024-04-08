@@ -36,7 +36,7 @@ public class ImageLabelWrapper {
                         .setConfidenceThreshold(confidence)
                         .build();
         labeler = ImageLabeling.getClient(options);
-        dbManager = new DatabaseManager(MainActivity.mainActivity);
+        dbManager = new DatabaseManager(MainActivity.mainActivity );
     }
     public static ImageLabelWrapper getInstance() {
         if (INSTANCE == null) {
