@@ -43,4 +43,7 @@ dependencies {
     // mlkit
     implementation ( "com.google.mlkit:image-labeling:17.0.7" )
     implementation ( "com.google.mlkit:text-recognition:16.0.0" )
+
+    // gms
+    implementation ("com.google.android.gms:play-services-tasks:16.0.1")
 }
