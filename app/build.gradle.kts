@@ -40,6 +40,15 @@ dependencies {
     implementation ("me.xdrop:fuzzywuzzy:1.2.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
+    //RecylerView
+    implementation ( "androidx.navigation:navigation-fragment:2.7.5" )
+    implementation ( "androidx.navigation:navigation-ui:2.7.5" )
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.cardview:cardview:1.0.0")
+
+    //UI circle
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    
     // mlkit
     implementation ( "com.google.mlkit:image-labeling:17.0.7" )
     implementation ( "com.google.mlkit:text-recognition:16.0.0" )

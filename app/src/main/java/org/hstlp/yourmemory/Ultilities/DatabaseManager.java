@@ -5,11 +5,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import org.hstlp.yourmemory.Callback.tagAdapterCallback;
+
 import java.util.ArrayList;
 
 public class DatabaseManager {
     private DBHelper dbHelper;
     // for tag
+    private ArrayList<tagAdapterCallback> callbacks=new ArrayList<>();
     public DatabaseManager(Context context) {
         dbHelper = new DBHelper(context);
     }
@@ -102,10 +106,10 @@ public class DatabaseManager {
         db.execSQL("DELETE FROM images");
         db.execSQL("DELETE FROM label_image");
         db.close();
-        //callbacks.forEach(tagAdapterCallback::update);
+        callbacks.forEach(tagAdapterCallback::update);
     }
 
-    //public void addCallback(tagAdapterCallback callback) {
-    //    callbacks.add(callback);
-    //}
+    public void addCallback(tagAdapterCallback callback) {
+        callbacks.add(callback);
+    }
 }
