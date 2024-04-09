@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
 
     @SuppressLint("SetWorldReadable")
     @Override
-    public void shareImage(ArrayList<String> paths) {
+    public void shareImages(ArrayList<String> paths) {
         Intent intent;
         ArrayList<Bitmap> bitmapList = new ArrayList<>();
 
@@ -319,4 +319,119 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
             }
         }
     }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void SelectedTextChange() {
+        deleteNotify = String.valueOf(chooseToDeleteInList.size());
+        informationSelected.setText(chooseToDeleteInList.size() + " image selected");
+    }
+
+    @Override
+    public ArrayList<String> chooseToDeleteInList() {
+        return chooseToDeleteInList;
+    }
+
+    @Override
+    public ArrayList<String> adjustChooseToDeleteInList(String ListInp, String type) {
+        switch (type) {
+            case "choose":
+                if(!chooseToDeleteInList.contains(ListInp)) {
+                    chooseToDeleteInList.add(ListInp); // Kiểm tra xem có chứa List delete không nếu không thì thêm ListInp vào để xoá
+                }
+                break;
+
+            case "unchoose":
+                chooseToDeleteInList.remove(ListInp);
+                break;
+        }
+        return chooseToDeleteInList;
+    }
+
+
+    public class ReadFolderTask extends AsyncTask<String, Void, Void> {
+        @Override
+        protected void onPostExecute(Void aVoid) { //Sử lý kết quả sau mỗi lần gọi đệ qui
+            super.onPostExecute(aVoid);
+            mainImageDisplay.notifyChangeGridLayout();
+        }
+        @Override
+        protected Void doInBackground(String... params) { //Đọc các tẹp trong một luồng mà không ảnh hưởng đến UI
+            String dir = params[0];
+            readFolderAsync(dir);
+            return null;
+        }
+
+        private void readFolderAsync(String dir) {
+            File sdFile = new File(dir);
+            File[] foldersSD = sdFile.listFiles();
+
+            try {
+                assert foldersSD != null; //Kiểm tra điều kiện nếu false sẽ có AssertionError được ném ra
+                for(File file : foldersSD) {
+                    if(file.isDirectory()) {
+                        if(file.getName().equals("Albums")) {
+                            continue;
+                        }
+                        //Sử dụng AsyncTask để thực hiện gọi đệ qui ở đây
+                        ReadFolderTask readFolderTask = new ReadFolderTask();
+                        readFolderTask.execute(file.getAbsolutePath());
+                    }
+                    else {
+                        for(String extension : ImageExtensions) {
+                            if(file.getAbsolutePath().toLowerCase().endsWith(extension)) {
+                                if(!FileInPaths.contains(file.getAbsolutePath()))
+                                    FileInPaths.add(file.getAbsolutePath()); //Kiểm tra có đúng là hình ảnh không bằng cách so sánh đuôi mở rộng với tẹp hình ảnh trước đó
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception ignored){
+
+            }
+        }
+    }
+
+    private void changeFileInFolder(String Dir, String oldName, String newName) { // Đổi tên tệp hoặc thư mục con
+        File sdFile = new File(Dir);
+        File[] foldersSD = sdFile.listFiles();
+        try{
+            assert foldersSD != null;
+            for(File file : foldersSD){
+                if(file.isDirectory()) {
+                    if(file.getName().equals("Albums")){
+                        continue;
+                    }
+                    //Gọi hàm đệ qui tại đây để đổi tên tệp trong thư mục con
+                    changeFileInFolder(file.getAbsolutePath(), oldName, newName);
+                }
+                else{
+                    for(String extension :ImageExtensions) {
+                        if(file.getAbsolutePath().toLowerCase().endsWith(extension)){ //Kiểm tra có phải ảnh bằng phần đuôi mở rộng
+                            if(oldName.equals(file.getName())) { //Nếu trùng với oldName thì tiến hành đổi tên
+                                File fromFile = new File(Dir + "/" + oldName);
+                                File toFile = new File(Dir + "/" + newName);
+                                fromFile.renameTo(toFile);
+                                FileInPaths.remove(Dir + "/" + oldName);
+                                FileInPaths.add(Dir + "/" + newName);
+                                Toast.makeText(this, "doi thanh cong", Toast.LENGTH_LONG).show();
+                                //Hiển thị thông báo "doi thanh cong"
+                                ImageDisplay ic = mainImageDisplay;
+                                ic.notifyChangeGridLayout();
+                                break;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex){
+
+        }
+    }
+
+
 }
