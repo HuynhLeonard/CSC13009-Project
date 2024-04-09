@@ -248,4 +248,75 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         chooseToDeleteInList.clear();
     }
 
+    @Override
+    public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) { //Trường hợp permission đã được chấp nhận
+                askForPermissions();
+
+                ReadFolderTask readPicture = new ReadFolderTask();
+                ReadFolderTask readDCIM = new ReadFolderTask();
+                readPicture.execute(Picture);
+                readDCIM.execute(DCIM);
+
+                viewPager2.setCurrentItem(0);
+            }
+        } else {
+            finish();
+        }
+    }
+
+    @Override
+    public void setCurrentDirectory(String Dir) {
+        currentDirectory = Dir;
+        folderPaths.add(Dir);
+    }
+
+    @Override
+    public  void removeImageUpdate(String[] imageList) {    //Xóa nhiều ảnh
+        for (String image : imageList) {
+            FileInPaths.remove(image);
+            mainImageDisplay.removeImage(image);
+        }
+    }
+
+    @Override
+    public  void removeImageUpdate(String image) {  //Xóa 1 ảnh
+        FileInPaths.remove(image);
+    }
+
+    @Override
+    public void renameImageUpdate(String oldName, String newName) {
+        changeFileInFolder(Picture, oldName, newName);
+        changeFileInFolder(DCIM, oldName, newName);
+    }
+
+    @Override
+    public void addImageUpdate(String[] imageList) {
+        Collections.addAll(FileInPaths, imageList);
+    }
+
+    @Override
+    public void Holding(boolean isHolding) {    //Hàm xử lý khi giữ 1 ảnh hoặc nhiều ảnh (Sử dụng cho album)
+        ImageDisplay instance = onScreenImageDisplay;
+
+        if (isHolding) {
+            chooseNavbar.setVisibility(View.VISIBLE);
+            navbar.setVisibility(View.INVISIBLE);
+            status.setVisibility(View.VISIBLE);
+            if (instance.callback != null) {
+                instance.callback.onLongClick();
+            }
+        } else {
+            chooseNavbar.setVisibility(View.INVISIBLE);
+            navbar.setVisibility(View.VISIBLE);
+            status.setVisibility(View.INVISIBLE);
+
+            if (instance.callback != null) {
+                instance.callback.afterLongClick();
+            }
+        }
+    }
 }
