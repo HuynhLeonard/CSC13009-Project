@@ -50,7 +50,9 @@ import org.hstlp.yourmemory.Ultilities.SlideShow;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -115,4 +117,52 @@ public class MainActivity extends AppCompatActivity {
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
     }
+
+    @SuppressLint("SetWorldReadable")
+    @Override
+    public void shareImage(ArrayList<String> paths) {
+        Intent intent;
+        ArrayList<Bitmap> bitmapList = new ArrayList<>();
+
+        for (int i = 0; i < paths.size(); i++) {
+            bitmapList.add(BitmapFactory.decodeFile(paths.get(i))); //Decode file thành các bitmap và lưu lại vào 1 list các bitmap
+        }
+
+        try {
+            ArrayList<Uri> uriList = new ArrayList<>();
+
+            for (int i = 0; i < paths.size(); i++) {
+                File file = new File(paths.get(i));
+                FileOutputStream fout = new FileOutputStream(file); //Mở đường dẫn để ghi vào file
+
+                bitmapList.get(i).compress(Bitmap.CompressFormat.JPEG, 100, fout);  //Ghi vào file vừa tạo các bitmap với format là ảnh jpeg và chất lượng 100
+
+                fout.flush();
+                fout.close();
+
+                file.setReadable(true, false);
+                Uri uri = FileProvider.getUriForFile(this, "com.example.YourMemory.provider", file); //Lấy đường dẫn uri của file
+                uriList.add(uri);
+            }
+
+            if (paths.size() == 1) { //Chuyển data đi
+                intent = new Intent(Intent.ACTION_SEND);
+            } else {
+                intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+            }
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            if (paths.size() == 1) {
+                intent.putExtra(Intent.EXTRA_STREAM, uriList.get(0));
+            } else {
+                intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uriList);
+            }
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            intent.setType("image/*");
+            startActivity(Intent.createChooser(intent, "Share file via"));
+
+        } catch (Exception ignored) {}
+    }
+
 }
