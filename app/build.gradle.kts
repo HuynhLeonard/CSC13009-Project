@@ -51,7 +51,9 @@ dependencies {
 
     //UI circle
     implementation ("de.hdodenhof:circleimageview:3.1.0")
-    
+
+    implementation ("com.github.Spikeysanju:ZoomRecylerLayout:1.0")
+
     // mlkit
     implementation ( "com.google.mlkit:image-labeling:17.0.7" )
     implementation ( "com.google.mlkit:text-recognition:16.0.0" )
