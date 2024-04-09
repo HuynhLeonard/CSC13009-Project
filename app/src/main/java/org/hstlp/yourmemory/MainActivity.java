@@ -103,8 +103,80 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        shareConfig = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        edit = shareConfig.edit();
+        isDark = shareConfig.getBoolean("darkmode", false);
+
+        if (isDark) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        edit.putBoolean("darkmode", isDark);
+        edit.commit();
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FileInPaths.clear();
+
+        RequestOptions requestOptions = new RequestOptions()
+                .placeholder(R.drawable.placehoder)
+                .error(R.drawable.error_image);
+        Glide.init(this, new GlideBuilder().setDefaultRequestOptions(requestOptions));
+
+
+        mainActivity = this;
+
+
+        ActivityCompat.requestPermissions(
+                MainActivity.this,
+                new String[]{
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.INTERNET
+                }, 1);
+        if (savedInstanceState == null) {
+            mainImageDisplay = new ImageDisplay();
+        }
+        else{
+            mainImageDisplay =(ImageDisplay) getSupportFragmentManager().getFragment(savedInstanceState, "f0");
+        }
+        //AlbumsFragment.getInstance();
+        arrFrag[0] = mainImageDisplay;
+        arrFrag[1] = mainImageDisplay;
+        arrFrag[2] = mainImageDisplay;
+        //arrFrag[1] = AlbumHostingFragment.getInstance();
+        //arrFrag[2] = SearchHostingFragment.getInstance();
+
+        DCIM = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
+        Picture = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
+
+        initView();
+        viewPagerAdapter viewPagerAdapter = new viewPagerAdapter(this, Arrays.asList(arrFrag));
+        viewPager2.setAdapter(viewPagerAdapter);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                updateButtonStatus(position);
+            }
+        });
+        deleteBtn.setOnClickListener(this);
+        cancelBtn.setOnClickListener(this);
+        selectAll.setOnClickListener(this);
+        createSliderBtn.setOnClickListener(this);
+        shareMultipleBtn.setOnClickListener(this);
+        addToAlbumBtn.setOnClickListener(this);
+        addToFavoriteBtn.setOnClickListener(this);
+
+        arrNavLinearLayouts[0].setOnClickListener(new NavLinearLayouts(0));
+        arrNavLinearLayouts[1].setOnClickListener(new NavLinearLayouts(1));
+        arrNavLinearLayouts[2].setOnClickListener(new NavLinearLayouts(2));
+
+        setCurrentDirectory(Picture);
+        setSupportActionBar(toolbar);
     }
 
     @Override
