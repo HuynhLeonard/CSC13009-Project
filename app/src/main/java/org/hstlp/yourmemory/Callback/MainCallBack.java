@@ -13,4 +13,17 @@ public interface MainCallBack {
     String getPictureDirectory();
     ArrayList<String> getFileinDir();
     void removeImageUpdate(String[] input);
+    void removeImageUpdate(String input);
+
+    void renameImageUpdate(String oldNam, String newName);
+    void Holding(boolean isHolding);
+    void SelectedTextChange();
+    ArrayList<String> chooseToDeleteInList();
+    ArrayList<String> adjustChooseToDeleteInList(String ListInp,String type );
+    void clearChooseToDeleteInList();
+    void addImageUpdate(String[] input);
+
+    void shareImages(ArrayList<String> paths);
+    boolean getIsDark();
+    void setIsDark(boolean status);
 }
