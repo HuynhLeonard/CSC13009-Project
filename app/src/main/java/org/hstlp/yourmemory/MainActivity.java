@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
     }
 
     @Override
-    public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == 1) {
@@ -553,10 +553,10 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
             Collections.addAll(paths, select);
             shareImages(paths);
         } else if (id == R.id.addToAlbumBtn) {//Trường hợp thêm vào album
-            AlbumChoosingDialog albumChoosingDialog = new AlbumChoosingDialog(mainActivity);
-            albumChoosingDialog.show();
+/*            AlbumChoosingDialog albumChoosingDialog = new AlbumChoosingDialog(mainActivity);
+            albumChoosingDialog.show();*/
         } else if (id == R.id.addToFavoriteBtn) {//Trường hợp thêm vào yêu thích
-            MoveOrCopyForDialog moveOrCopyForDialogDialog = new MoveOrCopyForDialog(mainActivity, new MoveOrCopyForDialog.MoveOrCopyCallBack() {
+/*            MoveOrCopyForDialog moveOrCopyForDialogDialog = new MoveOrCopyForDialog(mainActivity, new MoveOrCopyForDialog.MoveOrCopyCallBack() {
                 @Override
                 public void dismissCallback(String method) {
                     if (method.equals("remove")) {
@@ -579,7 +579,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
                     AlbumsFragment.favoriteAlbum().imagePaths.add(newImagePath);
                 }
             }, AlbumsFragment.favoriteAlbum(), chooseToDeleteInList());
-            moveOrCopyForDialogDialog.show();
+            moveOrCopyForDialogDialog.show();*/
         }
     }
 
@@ -621,7 +621,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         }
     }
 
-    private class AlbumChoosingDialog extends Dialog {
+    /*private class AlbumChoosingDialog extends Dialog {
         @SuppressLint("UseCompatLoadingForDrawables")
         public AlbumChoosingDialog(@NonNull Context context) {
             super(context);
@@ -683,21 +683,21 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         }
 
         private class AlbumChoosingAdapter extends BaseAdapter {
-            ArrayList<Album> albumList;
+*//*            ArrayList<Album> albumList;
 
             public AlbumChoosingAdapter() {
                 this.albumList = AlbumsFragment.albumList;
-            }
+            }*//*
 
             @Override
             public int getCount() {
                 return albumList.size();
             }
 
-            @Override
+*//*            @Override
             public Object getItem(int i) {
                 return albumList.get(i);
-            }
+            }*//*
 
             @Override
             public long getItemId(int i) {
@@ -705,7 +705,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
             }
 
             @Override
-            public View getView(int i, View view, ViewGroup viewGroup) {
+            *//*public View getView(int i, View view, ViewGroup viewGroup) {
                 ViewHolder viewHolder;
                 if (view == null) {
                     view = getLayoutInflater().inflate(R.layout.row_album, viewGroup, false);
@@ -726,7 +726,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
                     viewHolder.imageView.setImageResource(R.drawable.ic_baseline_folder_24);
                 }
                 return view;
-            }
+            }*//*
 
             private class ViewHolder {
                 TextView albumName;
@@ -734,7 +734,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
                 ImageView imageView;
             }
         }
-    }
+    }*/
 
     public void analyse() {
         ImageLabelWrapper imageLabelWrapper = ImageLabelWrapper.getInstance();
