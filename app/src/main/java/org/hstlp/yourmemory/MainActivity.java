@@ -58,7 +58,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainCallBack, View.OnClickListener {
     public ArrayList<String> FileInPaths = new ArrayList<>();
     String currentDirectory = null;
     String SD;
@@ -163,6 +163,89 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Share file via"));
 
         } catch (Exception ignored) {}
+    }
+
+    @Override
+    public boolean getIsDark(){
+        return isDark;
+    }
+
+    @Override
+    public void setIsDark(boolean status) {
+        isDark = status;
+        edit.putBoolean("darkmode", isDark);
+        edit.commit();
+        this.recreate();
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawable")
+    private void showSliderDialogBox() {
+        final Dialog customDialog = new Dialog(mainActivity);
+        customDialog.setContentView(R.layout.slider_dialog_notify); // Có thể fix lại layout này
+        Objects.requireNonNull(customDialog.getWindow()).setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        // Kiểm tra và làm nền cho Dialog
+        customDialog.findViewById(R.id.cancelSlider)
+                .setOnClickListener(view -> customDialog.dismiss());
+
+        customDialog.findViewById(R.id.comfirmSlider)
+                .setOnClickListener(view -> {
+
+                    RadioGroup radio = customDialog.findViewById(R.id.musicGroup);
+                    // Cài đặt nhạc cho slideShow
+                    int id = radio.getCheckedRadioButtonId();
+                    RadioButton selectedRadionBtn = customDialog.findViewById(id);
+                    String name = selectedRadionBtn.getText().toString();
+
+                    customDialog.dismiss();
+
+                    String[] select = chooseToDeleteInList.toArray
+                            (new String[0]);
+
+                    Intent intent = new Intent(mainActivity, SlideShow.class)
+                            .putExtra("images", select)
+                            .putExtra("music", name);
+
+                    startActivity(intent);
+                });
+        customDialog.show();
+    }
+
+    @SuppressLint({"SetTextI18n", "UseCompatLoadingForDrawables"})
+    private void showCustomDialogBox() {
+        final Dialog customDialog = new Dialog(mainActivity);
+        customDialog.setTitle("Delete confirm");
+
+        customDialog.setContentView(R.layout.delete_image_confirm_dialog);
+        Objects.requireNonNull(customDialog.getWindow()).
+                setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+
+        ((TextView) customDialog.findViewById(R.id.deleteNotify))
+                .setText("Do you want to delete " + deleteNotify + " image(s) permanently in your device ?");
+                //Thay đổi thông báo xoá bao nhiêu ảnh
+        customDialog.findViewById(R.id.cancel_delete)
+                .setOnClickListener(view -> customDialog.dismiss());
+
+        customDialog.findViewById(R.id.confirmDelete)
+                .setOnClickListener(view -> {
+                    ImageDisplay ic = mainImageDisplay;
+                    String[] select = chooseToDeleteInList.toArray
+                            (new String[0]);
+
+
+                    removeImageUpdate(select);
+                    ImageDelete.DeleteImage(select);
+                    clearChooseToDeleteInList(); //Xoá các ảnh đã chọn
+                    ic.deleteClicked();
+                    customDialog.dismiss();
+                });
+
+        customDialog.show();
+    }
+
+
+    @Override
+    public void clearChooseToDeleteInList() {
+        chooseToDeleteInList.clear();
     }
 
 }
