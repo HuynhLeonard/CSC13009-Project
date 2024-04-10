@@ -30,4 +30,23 @@ public class EditTransformFragment {
             throw new IllegalStateException("MainActivity must implement callbacks");
         }
     }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        @SuppressLint("InflateParams") View layout = inflater.
+                inflate(R.layout.edit_transform_fragment, null);
+
+        verticalBtn = layout.findViewById(R.id.vertical_flip);
+        verticalBtn.setOnClickListener(view -> main.TransformVertical());
+
+        horizontalBtn = layout.findViewById(R.id.horizontal_flip);
+        horizontalBtn.setOnClickListener(view -> main.TransformHorizontal());
+
+        backBtn = layout.findViewById(R.id.back_edit_btn);
+        backBtn.setOnClickListener(view -> main.BackFragment());
+
+        return layout;
 }
