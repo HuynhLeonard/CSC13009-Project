@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -39,9 +40,12 @@ import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
+import java.io.ByteArrayInputStream;
+import java.io.Console;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -209,8 +213,6 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
 
             intent.putExtra("imgPath", currentSelectedName);
             someActivityResultLauncher.launch(intent);
-
-
         });
 
         rotateBtn = findViewById(R.id.rotateBtn);
@@ -275,7 +277,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
             //cut name
             imagesPath = intent.getStringArrayListExtra("images");
             int pos = intent.getIntExtra("pos", 0);
-            //String selectedName = intent.getStringExtra("name");
+            String selectedName = intent.getStringExtra("name");
             ArrayList<String> images = intent.getStringArrayListExtra("images");
 
 
