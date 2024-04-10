@@ -79,21 +79,22 @@
             android:id="@+id/download_url_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:padding="10dp"
             android:textColor="#ffffff"
             android:background="@drawable/styled_button"
             android:text="Cancel"
-            android:backgroundTint="@color/space_grey"/>
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/download_url_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:padding="10dp"
             android:textColor="#ffffff"
             android:background="@drawable/styled_button"
-            android:text="Save" />
+            android:text="Save"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck"/>
     </LinearLayout>
 </LinearLayout>

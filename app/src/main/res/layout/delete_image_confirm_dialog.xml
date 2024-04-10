@@ -56,23 +56,29 @@
             app:layout_constraintStart_toStartOf="@+id/deleteNotify"
             app:layout_constraintTop_toBottomOf="@+id/deleteNotify">
 
-            <ImageButton
-                android:id="@+id/cancel_delete"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="20dp"
-                android:src="@drawable/ic_baseline_close_24"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancelDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#ffffff"
+                android:text="OK"
+                android:background="@drawable/styled_button"
                 android:theme="@style/dSelectedBtn"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
 
-            <ImageButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/confirmDelete"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_baseline_check_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="#ffffff"
+                android:text="OK"
+                android:background="@drawable/styled_button"
                 android:theme="@style/dSelectedBtn"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
