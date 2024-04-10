@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Chua thiet ke giao dien-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/customBackgroundSecond"
+    >
+
+    <RelativeLayout
+        android:theme="@style/customBackgroundSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_nav"
+        >
+
+        <ImageButton
+            android:id="@+id/edit_cancel_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_baseline_close_24"
+            android:theme="@style/selectedImg"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/edit_reset_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@+id/edit_confirm_btn"
+            android:padding="2dp"
+            android:src="@drawable/ic_baseline_autorenew_24"
+            android:theme="@style/selectedImg"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/edit_confirm_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_baseline_check_24"
+            android:theme="@style/selectedImg"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:paddingHorizontal="20dp"
+        android:theme="@style/customBackgroundSecond"
+        tools:ignore="InefficientWeight">
+
+        <ImageView
+            android:id="@+id/edit_image_object"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/error_image"
+            android:theme="@style/customBackgroundSecond"
+            tools:ignore="ContentDescription">
+
+        </ImageView>
+
+        <LinearLayout
+            android:id="@+id/edit_central_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_image_object"
+            android:layout_marginTop="59dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:theme="@style/customBackground"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/edit_transform_btn"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables,TextSizeCheck">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_transform_24"
+                    android:theme="@style/selectedImg"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transform_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/edit_filter_btn"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_filter_24"
+                    android:theme="@style/selectedImg"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/blur_btn"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_blur_on_24"
+                    android:theme="@style/selectedImg"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blur"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_function_btns"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        >
+
+    </FrameLayout>
+
+
+</LinearLayout>
