@@ -5,7 +5,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:theme="@style/dBackground"
-    android:paddingVertical="10dp"
+    android:background="00000000"
+    android:paddingTop="20dp"
+    android:paddingVertical="20dp"
     android:paddingHorizontal="20dp"
     >
 
@@ -16,7 +18,7 @@
         android:text="Rename image"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textSize="30dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText,SpUsage" />
 
@@ -26,9 +28,10 @@
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/custom_row_album_favorite"
+        android:background="@drawable/styled_edittext"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
+        android:hint="Your image name"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TextFields" />
     <TextView
         android:layout_width="match_parent"
@@ -38,34 +41,36 @@
         android:textStyle="italic"
         android:visibility="invisible"
         android:id="@+id/errorName"
-        android:text="File name not null and contain special charater"
+        android:text="File name not null and contain special characters"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingTop="10dp">
 
-        <ImageButton
-            android:id="@+id/cancel"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginRight="20dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/styled_button"
+            android:text="Cancel"
+            android:backgroundTint="@color/space_grey"/>
 
-            android:src="@drawable/ic_baseline_close_24"
-            android:theme="@style/dSelectedBtn"
-            tools:ignore="ContentDescription,RtlHardcoded,SpeakableTextPresentCheck" />
-
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ok_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_baseline_check_24"
-
-            android:theme="@style/dSelectedBtn"
-            tools:ignore="ContentDescription,RtlHardcoded,SpeakableTextPresentCheck" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/styled_button"
+            android:text="Save" />
     </LinearLayout>
 
 </LinearLayout>
