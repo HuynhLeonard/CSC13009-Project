@@ -203,7 +203,6 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         infoBtn.setOnClickListener(view -> showCustomDialogBoxInformation());
 
         editBtn = findViewById(R.id.editBtn);
-        /*
         editBtn.setOnClickListener(view -> {
             Toast.makeText(getApplicationContext(), "edit", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), EditImage.class);
@@ -212,7 +211,8 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
             someActivityResultLauncher.launch(intent);
 
 
-        }); */
+        });
+
         rotateBtn = findViewById(R.id.rotateBtn);
         rotateBtn.setOnClickListener(view -> {
 
@@ -341,7 +341,6 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                     Intent intent = new Intent();
                     setResult(2, intent);
                     finish();
-
                 }
             });
 
@@ -651,7 +650,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         Objects.requireNonNull(customDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
-        customDialog.findViewById(R.id.cancel)
+        customDialog.findViewById(R.id.cancel_button)
                 .setOnClickListener(view -> {
                     //thực hiện đổi tên tại đây
                     customDialog.dismiss();
