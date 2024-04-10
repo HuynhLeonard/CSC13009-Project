@@ -133,7 +133,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             fragmentLayoutDisplay.setVisibility(View.VISIBLE);
             edit_nav.setVisibility(View.GONE);
             ft = getSupportFragmentManager().beginTransaction();
-            blurFragment = BlurEditorFragment.newInstance();
+            blurFragment = BlurEditorFragment.makeNewInstance();
             ft.replace(R.id.fragment_function_btns, blurFragment);
             ft.commit();
         });
@@ -143,7 +143,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             edit_nav.setVisibility(View.GONE);
             ArrayList<Bitmap> listImage = new ArrayList<>();
             for (String s : listName) {
-                listImage.add(ImageUtility.setFilter(editedImage, s));
+                listImage.add(ImageUltility.setFilter(editedImage, s));
             }
 
             fragmentLayoutDisplay.setVisibility(View.VISIBLE);

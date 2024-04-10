@@ -12,10 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class EditTransformFragment {
+public class EditTransformFragment extends Fragment {
+    EditImage main;
     Context context = null;
     ImageButton verticalBtn;
     ImageButton horizontalBtn;
+    ImageButton backBtn;
 
     public static EditTransformFragment newInstance() {return new EditTransformFragment();}
 
@@ -49,4 +51,5 @@ public class EditTransformFragment {
         backBtn.setOnClickListener(view -> main.BackFragment());
 
         return layout;
+    }
 }

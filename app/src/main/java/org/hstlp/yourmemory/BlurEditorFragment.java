@@ -54,7 +54,7 @@ public class BlurEditorFragment extends Fragment {
         backBtn.setOnClickListener(view -> main.BackFragment());
         confirmBtn = layout.findViewById(R.id.blur_confirm_btns);
         confirmBtn.setOnClickListener(view -> {
-            main.ConfirmBlur(blurredImage);
+            main.ConfirmBlur(blurredImageBitmap);
             main.BackFragment();
         });
         seekBar.setMax(100);
