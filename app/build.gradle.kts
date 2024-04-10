@@ -62,4 +62,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-tasks:16.0.1")
 
     implementation ("com.github.Spikeysanju:ZoomRecylerLayout:1.0")
+
+    // this one use for copy image
+    implementation ( "com.github.yalantis:ucrop:2.2.8-native" )
 }
