@@ -38,10 +38,10 @@
 
             <TextView
                 android:id="@+id/photoTags"
-                android:layout_width="250dp"
+                android:layout_width="147dp"
                 android:layout_weight="1"
-                android:background="@color/white_smoke"
                 android:padding="5dp"
+                android:background="@drawable/styled_edittext"
                 android:textSize="15sp" />
         </TableRow>
         <TableRow>
@@ -55,12 +55,12 @@
                 tools:ignore="HardcodedText,RtlHardcoded,TextSizeCheck" />
 
             <TextView
-                android:id="@+id/photoName"
-                android:layout_width="250dp"
-                android:layout_weight="1"
-                android:background="@color/white_smoke"
+                android:textSize="15sp"
                 android:padding="5dp"
-                android:textSize="15sp" />
+                android:id="@+id/photoName"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/styled_edittext"
                 />
         </TableRow>
         <TableRow>
@@ -75,11 +75,11 @@
 
             <TextView
                 android:id="@+id/photoPath"
-                android:layout_width="250dp"
-                android:layout_weight="1"
-                android:background="@color/white_smoke"
                 android:padding="5dp"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/styled_edittext"/>
         </TableRow>
         <TableRow>
 
@@ -92,12 +92,12 @@
                 tools:ignore="HardcodedText,RtlHardcoded,TextSizeCheck" />
 
             <TextView
-                android:id="@+id/photoLastModified"
-                android:layout_width="250dp"
-                android:layout_weight="1"
-                android:background="@color/white_smoke"
+                android:layout_width="fill_parent"
+                android:textSize="15sp"
                 android:padding="5dp"
-                android:textSize="15sp" />
+                android:id="@+id/photoLastModified"
+                android:layout_weight="1"
+                android:background="@drawable/styled_edittext"
                 />
         </TableRow>
         <TableRow>
@@ -111,12 +111,11 @@
                 tools:ignore="HardcodedText,RtlHardcoded,TextSizeCheck" />
 
             <TextView
-                android:layout_width="250dp"
-                android:layout_weight="1"
-                android:background="@color/white_smoke"
-                android:padding="5dp"
                 android:textSize="15sp"
-                android:id="@+id/photoSize" />
+                android:padding="5dp"
+                android:id="@+id/photoSize"
+                android:background="@drawable/styled_edittext"
+                />
         </TableRow>
     </TableLayout>
 

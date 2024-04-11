@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText("Do you want to delete " + deleteNotify + " image(s) permanently in your device ?");
                 //Thay đổi thông báo xoá bao nhiêu ảnh
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
                 .setOnClickListener(view -> customDialog.dismiss());
 
         customDialog.findViewById(R.id.confirmDelete)

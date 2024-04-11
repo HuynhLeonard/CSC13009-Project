@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -39,9 +40,12 @@ import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
+import java.io.ByteArrayInputStream;
+import java.io.Console;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -203,16 +207,14 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         infoBtn.setOnClickListener(view -> showCustomDialogBoxInformation());
 
         editBtn = findViewById(R.id.editBtn);
-        /*
         editBtn.setOnClickListener(view -> {
             Toast.makeText(getApplicationContext(), "edit", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), EditImage.class);
 
             intent.putExtra("imgPath", currentSelectedName);
             someActivityResultLauncher.launch(intent);
+        });
 
-
-        }); */
         rotateBtn = findViewById(R.id.rotateBtn);
         rotateBtn.setOnClickListener(view -> {
 
@@ -275,7 +277,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
             //cut name
             imagesPath = intent.getStringArrayListExtra("images");
             int pos = intent.getIntExtra("pos", 0);
-            //String selectedName = intent.getStringExtra("name");
+            String selectedName = intent.getStringExtra("name");
             ArrayList<String> images = intent.getStringArrayListExtra("images");
 
 
@@ -341,7 +343,6 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                     Intent intent = new Intent();
                     setResult(2, intent);
                     finish();
-
                 }
             });
 
@@ -462,7 +463,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText("Do you want to delete in your device ?");
 
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
                 .setOnClickListener(view -> {
                     customDialog.dismiss();
                 });
@@ -497,7 +498,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText("Do you want to delete in your device ?");
 
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
                 .setOnClickListener(view -> customDialog.dismiss());
 
         customDialog.findViewById(R.id.confirmDelete)
@@ -581,7 +582,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         ((TextView) customDialog.findViewById(R.id.titleBox))
                 .setText("Change");
 
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
 
                 .setOnClickListener(view -> {
                     //donothing
@@ -630,7 +631,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         Objects.requireNonNull(customDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 //
-        ((TextView) customDialog.findViewById(R.id.messageShow))
+        ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText(message);
 
         customDialog.findViewById(R.id.ok_button)
@@ -651,7 +652,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         Objects.requireNonNull(customDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
-        customDialog.findViewById(R.id.cancel)
+        customDialog.findViewById(R.id.cancel_button)
                 .setOnClickListener(view -> {
                     //thực hiện đổi tên tại đây
                     customDialog.dismiss();
