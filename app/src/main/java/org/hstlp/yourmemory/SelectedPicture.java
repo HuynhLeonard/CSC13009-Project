@@ -463,7 +463,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText("Do you want to delete in your device ?");
 
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
                 .setOnClickListener(view -> {
                     customDialog.dismiss();
                 });
@@ -498,7 +498,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText("Do you want to delete in your device ?");
 
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
                 .setOnClickListener(view -> customDialog.dismiss());
 
         customDialog.findViewById(R.id.confirmDelete)
@@ -582,7 +582,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         ((TextView) customDialog.findViewById(R.id.titleBox))
                 .setText("Change");
 
-        customDialog.findViewById(R.id.cancel_delete)
+        customDialog.findViewById(R.id.cancelDelete)
 
                 .setOnClickListener(view -> {
                     //donothing
@@ -631,7 +631,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         Objects.requireNonNull(customDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 //
-        ((TextView) customDialog.findViewById(R.id.messageShow))
+        ((TextView) customDialog.findViewById(R.id.deleteNotify))
                 .setText(message);
 
         customDialog.findViewById(R.id.ok_button)
