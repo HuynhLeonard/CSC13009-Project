@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp"
-    android:theme="@style/dBackground"
+
     android:background="@drawable/rounded_corners"
     android:paddingVertical="10dp"
     >
@@ -14,8 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Information"
+        android:padding="5dp"
         android:textAlignment="center"
-        android:textSize="30dp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textAllCaps="true"
         tools:ignore="HardcodedText,SpUsage" />
@@ -23,29 +24,30 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         >
         <TableRow>
 
             <TextView
-                android:gravity="right"
+                android:gravity="left"
                 android:padding="10dp"
                 android:text="Image Tags:"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText,RtlHardcoded,TextSizeCheck" />
+
             <TextView
-                android:textSize="15sp"
-                android:padding="5dp"
                 android:id="@+id/photoTags"
-                android:layout_width="fill_parent"
+                android:layout_width="147dp"
                 android:layout_weight="1"
-                />
+                android:padding="5dp"
+                android:background="@drawable/styled_edittext"
+                android:textSize="15sp" />
         </TableRow>
         <TableRow>
 
             <TextView
-                android:gravity="right"
+                android:gravity="left"
                 android:padding="10dp"
                 android:text="Image Name:"
                 android:textSize="15sp"
@@ -58,12 +60,13 @@
                 android:id="@+id/photoName"
                 android:layout_width="fill_parent"
                 android:layout_weight="1"
+                android:background="@drawable/styled_edittext"
                 />
         </TableRow>
         <TableRow>
 
             <TextView
-                android:gravity="right"
+                android:gravity="left"
                 android:padding="10dp"
                 android:text="Image Path:"
                 android:textSize="15sp"
@@ -75,12 +78,13 @@
                 android:padding="5dp"
                 android:textSize="15sp"
                 android:layout_width="fill_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:background="@drawable/styled_edittext"/>
         </TableRow>
         <TableRow>
 
             <TextView
-                android:gravity="right"
+                android:gravity="left"
                 android:padding="10dp"
                 android:text="Last Modified:"
                 android:textSize="15sp"
@@ -93,12 +97,13 @@
                 android:padding="5dp"
                 android:id="@+id/photoLastModified"
                 android:layout_weight="1"
+                android:background="@drawable/styled_edittext"
                 />
         </TableRow>
         <TableRow>
 
             <TextView
-                android:gravity="right"
+                android:gravity="left"
                 android:padding="10dp"
                 android:text="Size:"
                 android:textSize="15sp"
@@ -109,17 +114,20 @@
                 android:textSize="15sp"
                 android:padding="5dp"
                 android:id="@+id/photoSize"
+                android:background="@drawable/styled_edittext"
                 />
         </TableRow>
     </TableLayout>
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ok_button"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_check_24"
+        android:layout_margin="20dp"
+        android:text="OK"
+        android:textColor="#ffff"
+        android:background="@drawable/styled_button"
         android:theme="@style/dSelectedBtn"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

@@ -1,39 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/custom_dialog_bg"
-    android:theme="@style/dBackground"
-    >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Successful"
-        android:layout_marginBottom="12dp"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        tools:ignore="HardcodedText" />
+    android:layout_gravity="center"
+    app:cardCornerRadius="16dp">
 
-    <TextView
-        android:id="@+id/messageShow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ct_ly"
+        android:layout_width="361dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:text="Change Successfully"
-        android:textSize="16dp"
-        tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
+        android:paddingHorizontal="10dp"
+        android:paddingTop="10dp">
 
-    <ImageButton
-        android:id="@+id/ok_button"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_check_24"
-        android:theme="@style/dSelectedBtn"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/titleBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Successful"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,SpUsage,TextSizeCheck"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/deleteNotify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginTop="12dp"
+            android:text="Change Successfully."
+            android:textAlignment="center"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,SpUsage,TextSizeCheck"
+            app:layout_constraintEnd_toEndOf="@+id/titleBox"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="@+id/titleBox"
+            app:layout_constraintTop_toBottomOf="@+id/titleBox" />
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/deleteNotify"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="@+id/deleteNotify"
+            app:layout_constraintTop_toBottomOf="@+id/deleteNotify">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirmDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:text="OK"
+                android:background="@drawable/styled_button"
+                android:theme="@style/dSelectedBtn"
+                tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
