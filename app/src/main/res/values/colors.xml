@@ -38,11 +38,15 @@
     <color name="select">#fefefe</color>
 
 
-<!--    color dialog-->
-<!--    dark mode-->
+    <!--    color dialog-->
+    <!--    dark mode-->
     <color name="ddmain">#65737e</color>
-<!--    light mode-->
+    <!--    light mode-->
     <color name="dlmain">@color/white</color>
-    <color name="blue_1" >#3AB4F2</color>
+    <color name="blue_1">#3AB4F2</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 
 </resources>
