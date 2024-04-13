@@ -54,7 +54,7 @@ public class MemoryAdapter extends ArrayAdapter<ImageView> {
         }
 
         ImageView image = getItem(position);
-        Picasso.with(context).load(person.getImageUrl()).fit().into(holder.imageView);
+        // Picasso.with(context).load(person.getImageUrl()).fit().into(holder.imageView);
 
         return convertView;
     }
