@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         customDialog.findViewById(R.id.cancelSlider)
                 .setOnClickListener(view -> customDialog.dismiss());
 
-        customDialog.findViewById(R.id.comfirmSlider)
+        customDialog.findViewById(R.id.confirmSlider)
                 .setOnClickListener(view -> {
 
                     RadioGroup radio = customDialog.findViewById(R.id.musicGroup);

@@ -44,7 +44,8 @@
             <RadioButton
                 android:id="@+id/music1"
                 android:layout_width="110dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:height="40dp"
                 android:checked="true"
                 android:gravity="center"
                 android:text="default 01"
@@ -53,7 +54,7 @@
             <RadioButton
                 android:id="@+id/music2"
                 android:layout_width="110dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:text="default 02"
                 tools:ignore="HardcodedText,TouchTargetSizeCheck" />
@@ -61,7 +62,7 @@
             <RadioButton
                 android:id="@+id/music3"
                 android:layout_width="110dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:text="default 03"
                 tools:ignore="HardcodedText,TouchTargetSizeCheck" />
