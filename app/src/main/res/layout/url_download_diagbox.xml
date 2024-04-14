@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:layout_margin="12dp"
-    >
+    android:background="@drawable/rounded_corners">
 
     <TextView
         android:layout_width="match_parent"

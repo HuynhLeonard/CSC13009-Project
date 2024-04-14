@@ -8,12 +8,14 @@
     android:paddingTop="20dp"
     android:paddingVertical="20dp"
     android:paddingHorizontal="20dp"
+    android:background="@drawable/rounded_corners"
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
+        android:background="#DDDDDD"
         android:text="Rename image"
         android:textAlignment="center"
         android:textAllCaps="true"
@@ -48,6 +50,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
+        android:background="#DDDDDD"
         android:paddingTop="10dp">
 
         <androidx.appcompat.widget.AppCompatButton

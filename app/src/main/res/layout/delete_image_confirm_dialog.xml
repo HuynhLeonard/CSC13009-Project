@@ -9,6 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ct_ly"
+        android:background="@drawable/rounded_corners"
         android:layout_width="361dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
