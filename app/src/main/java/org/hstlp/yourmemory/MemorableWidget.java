@@ -17,14 +17,10 @@ public class MemorableWidget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-
-        // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.memorable_widget);
+        Intent intent = new Intent(context, MemorableWidget.class);
 
-        int images[] = {R.drawable.error_image, R.drawable.heart, R.drawable.image};
-
-        views.setImageViewResource(R.id.memoryListView, R.drawable.heart);
-
+        views.setRemoteAdapter(R.id.memoryListView, intent);
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
