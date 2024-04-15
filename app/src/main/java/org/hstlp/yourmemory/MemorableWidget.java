@@ -2,6 +2,7 @@ package org.hstlp.yourmemory;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -30,7 +31,7 @@ public class MemorableWidget extends AppWidgetProvider {
     String Picture = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
 
     private static final String ACTION_UPDATE_WIDGET = "org.hstlp.yourmemory.ACTION_UPDATE_WIDGET";
-    private static final int ALARM_INTERVAL = 10;
+    private static final int ALARM_INTERVAL = 5;
 
     public static String[] ImageExtensions = new String[]{
             ".jpg",
@@ -54,7 +55,7 @@ public class MemorableWidget extends AppWidgetProvider {
         // Gửi một broadcast để cập nhật tiện ích khi được kích hoạt bởi AlarmManager
         Intent intent = new Intent(context, MemorableWidget.class);
         intent.setAction(ACTION_UPDATE_WIDGET);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         views.setOnClickPendingIntent(R.id.memoryImage, pendingIntent);
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
@@ -124,7 +125,7 @@ public class MemorableWidget extends AppWidgetProvider {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, MemorableWidget.class);
         intent.setAction(ACTION_UPDATE_WIDGET);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,  PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(), ALARM_INTERVAL, pendingIntent);
     }
 
@@ -132,7 +133,7 @@ public class MemorableWidget extends AppWidgetProvider {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, MemorableWidget.class);
         intent.setAction(ACTION_UPDATE_WIDGET);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.cancel(pendingIntent);
     }
 }
