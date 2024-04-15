@@ -66,7 +66,4 @@ dependencies {
 
     // this one use for copy image
     implementation ( "com.github.yalantis:ucrop:2.2.8-native" )
-
-    implementation ("androidx.work:work-runtime:2.7.1")
-    implementation ("com.google.androidbrowserhelper:androidbrowserhelper:2.5.0")
 }
