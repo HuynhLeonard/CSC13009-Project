@@ -1,6 +1,7 @@
 package org.hstlp.yourmemory;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -28,6 +29,9 @@ public class MemorableWidget extends AppWidgetProvider {
     String DCIM = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
     String Picture = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
 
+    private static final String ACTION_UPDATE_WIDGET = "org.hstlp.yourmemory.ACTION_UPDATE_WIDGET";
+    private static final int ALARM_INTERVAL = 10;
+
     public static String[] ImageExtensions = new String[]{
             ".jpg",
             ".png",
@@ -46,8 +50,12 @@ public class MemorableWidget extends AppWidgetProvider {
         Bitmap bitmap = BitmapFactory.decodeFile(randomImage);
         views.setImageViewBitmap(R.id.memoryImage, bitmap);
 
-        final Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-
+        //final Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        // Gửi một broadcast để cập nhật tiện ích khi được kích hoạt bởi AlarmManager
+        Intent intent = new Intent(context, MemorableWidget.class);
+        intent.setAction(ACTION_UPDATE_WIDGET);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        views.setOnClickPendingIntent(R.id.memoryImage, pendingIntent);
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 
@@ -85,5 +93,46 @@ public class MemorableWidget extends AppWidgetProvider {
             }
         }
         catch(Exception ignored) { }
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        if (intent.getAction() != null && intent.getAction().equals(ACTION_UPDATE_WIDGET)) {
+            // Nếu nhận được hành động cập nhật từ AlarmManager, thực hiện cập nhật tiện ích
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            ComponentName componentName = new ComponentName(context, MemorableWidget.class);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(componentName);
+            onUpdate(context, appWidgetManager, appWidgetIds);
+        }
+    }
+    @Override
+    public void onEnabled(Context context) {
+        super.onEnabled(context);
+        // Lập lịch cho việc cập nhật tiện ích định kỳ bằng AlarmManager khi tiện ích được kích hoạt
+        scheduleWidgetUpdates(context);
+    }
+
+    @Override
+    public void onDisabled(Context context) {
+        super.onDisabled(context);
+        // Hủy lịch trình cập nhật tiện ích khi tiện ích được tắt
+        cancelWidgetUpdates(context);
+    }
+
+    private void scheduleWidgetUpdates(Context context) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, MemorableWidget.class);
+        intent.setAction(ACTION_UPDATE_WIDGET);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(), ALARM_INTERVAL, pendingIntent);
+    }
+
+    private void cancelWidgetUpdates(Context context) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, MemorableWidget.class);
+        intent.setAction(ACTION_UPDATE_WIDGET);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.cancel(pendingIntent);
     }
 }
