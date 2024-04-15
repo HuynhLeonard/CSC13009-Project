@@ -42,9 +42,11 @@ public class MemorableWidget extends AppWidgetProvider {
         getImageFiles(Picture);
         getImageFiles(DCIM);
 
-        String randomImage = FileInPaths.get((int)Math.floor(Math.random()*FileInPaths.size()));
+        String randomImage = FileInPaths.get((int)Math.floor(Math.random() * FileInPaths.size()));
         Bitmap bitmap = BitmapFactory.decodeFile(randomImage);
         views.setImageViewBitmap(R.id.memoryImage, bitmap);
+
+        final Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
