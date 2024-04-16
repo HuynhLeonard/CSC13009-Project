@@ -10,6 +10,8 @@ public interface EditImageCallbacks {
 
     Bitmap BrightnessIMG(int amount);
 
+    Bitmap contrastIMG(int amount);
+
     void ConfirmBlur(Bitmap input);
     void BitmapFilterChoose(Bitmap input,String name);
     void recreateOnDarkMode();

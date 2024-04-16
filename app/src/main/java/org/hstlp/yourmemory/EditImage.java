@@ -46,6 +46,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
     // Loc
     BlurEditorFragment blurFragment;
     BrightnessEditorFragment brightnessFragment;
+    ContrastEditorFragment contrastFragment;
     //Tuan
     EditFilterFragment filterFragment;
     String imgName = null;
@@ -54,7 +55,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
     Boolean HorizontalFlip = false;
     LinearLayout linearView;
     FrameLayout fragmentLayoutDisplay;
-    String[] listName = {"No Effect", "Forest", "Cozy", "Evergreen", "Grayscale", "Vintage"};
+    String[] listName = {"No Effect", "Forest", "Cozy", "Evergreen", "Grayscale", "Vintage", "Invert", "Night Vision", "Warmth", "Coolness"};
     RelativeLayout edit_nav;
 
     @Override
@@ -155,15 +156,15 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             ft.commit();
         });
 
-        /*contrast_btn.setOnClickListener(view -> {
+        contrast_btn.setOnClickListener(view -> {
             linearView.setVisibility(View.INVISIBLE);
             fragmentLayoutDisplay.setVisibility(View.VISIBLE);
             edit_nav.setVisibility(View.GONE);
             ft = getSupportFragmentManager().beginTransaction();
-            blurFragment = BlurEditorFragment.makeNewInstance();
-            ft.replace(R.id.fragment_function_btns, blurFragment);
+            contrastFragment = ContrastEditorFragment.makeNewInstance();
+            ft.replace(R.id.fragment_function_btns, contrastFragment);
             ft.commit();
-        });*/
+        });
 
         bright_btn.setOnClickListener(view -> {
             linearView.setVisibility(View.INVISIBLE);
@@ -187,6 +188,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
         transform_btn = findViewById(R.id.edit_transform_btn);
         blur_btn = findViewById(R.id.blur_btn);
         bright_btn = findViewById(R.id.bright_btn);
+        contrast_btn = findViewById(R.id.contrast_btn);
         edit_img = findViewById(R.id.edit_image_object);
     }
     @Override
@@ -278,6 +280,26 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
                 0, 1f, 0, 0, amount,
                 0, 0, 1f, 0, amount,
                 0, 0, 0, 1f, 0
+        });
+        Paint paint= new Paint();
+        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+        Canvas canvas=new Canvas(editedBitmap);
+        canvas.drawBitmap(editedBitmap,0,0,paint);
+
+        edit_img.setImageBitmap(editedBitmap);
+        return editedBitmap;
+    }
+
+    @Override
+    public Bitmap contrastIMG(int contrast)
+    {
+        Bitmap bmp = editedImage;
+        Bitmap editedBitmap= bmp.copy(bmp.getConfig(),true);
+        ColorMatrix colorMatrix = new ColorMatrix(new float[]{
+                contrast, 0, 0, 0, 0,
+                0, contrast, 0, 0, 0,
+                0, 0, contrast, 0, 0,
+                0, 0, 0, contrast, 0
         });
         Paint paint= new Paint();
         paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
