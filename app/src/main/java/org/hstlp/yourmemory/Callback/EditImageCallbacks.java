@@ -7,6 +7,9 @@ public interface EditImageCallbacks {
     void TransformHorizontal();
     void BackFragment();
     Bitmap blurFast(int radius);
+
+    Bitmap BrightnessIMG(int amount);
+
     void ConfirmBlur(Bitmap input);
     void BitmapFilterChoose(Bitmap input,String name);
     void recreateOnDarkMode();

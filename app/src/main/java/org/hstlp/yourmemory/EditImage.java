@@ -3,10 +3,13 @@ package org.hstlp.yourmemory;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -15,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,7 +26,6 @@ import org.hstlp.yourmemory.Callback.EditImageCallbacks;
 import org.hstlp.yourmemory.Ultilities.ImageDelete;
 import org.hstlp.yourmemory.Ultilities.ImageUltility;
 import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.callback.BitmapCropCallback;
 import com.yalantis.ucrop.model.AspectRatio;
 
 import java.io.File;
@@ -44,6 +45,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
     EditTransformFragment transformFragment;
     // Loc
     BlurEditorFragment blurFragment;
+    BrightnessEditorFragment brightnessFragment;
     //Tuan
     EditFilterFragment filterFragment;
     String imgName = null;
@@ -153,7 +155,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             ft.commit();
         });
 
-        contrast_btn.setOnClickListener(view -> {
+        /*contrast_btn.setOnClickListener(view -> {
             linearView.setVisibility(View.INVISIBLE);
             fragmentLayoutDisplay.setVisibility(View.VISIBLE);
             edit_nav.setVisibility(View.GONE);
@@ -161,15 +163,15 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             blurFragment = BlurEditorFragment.makeNewInstance();
             ft.replace(R.id.fragment_function_btns, blurFragment);
             ft.commit();
-        });
+        });*/
 
         bright_btn.setOnClickListener(view -> {
             linearView.setVisibility(View.INVISIBLE);
             fragmentLayoutDisplay.setVisibility(View.VISIBLE);
             edit_nav.setVisibility(View.GONE);
             ft = getSupportFragmentManager().beginTransaction();
-            blurFragment = BlurEditorFragment.makeNewInstance();
-            ft.replace(R.id.fragment_function_btns, blurFragment);
+            brightnessFragment = BrightnessEditorFragment.makeNewInstance();
+            ft.replace(R.id.fragment_function_btns, brightnessFragment);
             ft.commit();
         });
     }
@@ -184,6 +186,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
         filter_btn = findViewById(R.id.edit_filter_btn);
         transform_btn = findViewById(R.id.edit_transform_btn);
         blur_btn = findViewById(R.id.blur_btn);
+        bright_btn = findViewById(R.id.bright_btn);
         edit_img = findViewById(R.id.edit_image_object);
     }
     @Override
@@ -263,6 +266,26 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
 
         edit_img.setImageBitmap(blurred);
         return blurred;
+    }
+
+    @Override
+    public Bitmap BrightnessIMG(int amount)
+    {
+        Bitmap bmp = editedImage;
+        Bitmap editedBitmap= bmp.copy(bmp.getConfig(),true);
+        ColorMatrix colorMatrix = new ColorMatrix(new float[]{
+                1, 0, 0, 0, amount,
+                0, 1f, 0, 0, amount,
+                0, 0, 1f, 0, amount,
+                0, 0, 0, 1f, 0
+        });
+        Paint paint= new Paint();
+        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+        Canvas canvas=new Canvas(editedBitmap);
+        canvas.drawBitmap(editedBitmap,0,0,paint);
+
+        edit_img.setImageBitmap(editedBitmap);
+        return editedBitmap;
     }
 
     @Override
