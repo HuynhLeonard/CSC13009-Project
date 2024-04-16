@@ -31,6 +31,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import org.hstlp.yourmemory.Callback.IsSelectedPicture;
 import org.hstlp.yourmemory.Callback.UpdateCallBack;
 import org.hstlp.yourmemory.Ultilities.ImageDelete;
+import org.hstlp.yourmemory.Ultilities.TranslationUltility;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -100,6 +101,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
     MainActivity mainActivity;
     ImageDisplay mainImageDisplay;
     TextRecognizer recognizer;
+    TranslationUltility Translation;
 
     @SuppressLint({"ClickableViewAccessibility", "SuspiciousIndentation"})
 
@@ -115,6 +117,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
         viewPager2 = findViewById(R.id.main_viewPager);
 
         mainActivity = MainActivity.mainActivity;
+        Translation = new TranslationUltility();
         mainImageDisplay = mainActivity.mainImageDisplay;
         backBtn = findViewById(R.id.backButton);
         backBtn.setOnClickListener(view -> SelectedPicture.super.onBackPressed());
@@ -169,15 +172,20 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                                     });
                                     customDialog.findViewById(R.id.btnFrance).setOnClickListener(view -> {
                                         // translate here
+                                        String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
+                                        Translation.translateFrance(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                     customDialog.findViewById(R.id.btnSpain).setOnClickListener(view -> {
-                                        // translate here
+                                        String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
+                                        Translation.translateSpain(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                     customDialog.findViewById(R.id.btnJapanese).setOnClickListener(view -> {
-                                        // translate here
+                                        String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
+                                        Translation.translateJapan(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                     customDialog.findViewById(R.id.btnKorean).setOnClickListener(view -> {
-                                        // translate here
+                                        String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
+                                        Translation.translateKorea(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                 }
                             })
