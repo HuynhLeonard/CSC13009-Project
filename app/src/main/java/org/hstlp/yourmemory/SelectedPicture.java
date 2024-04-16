@@ -164,7 +164,21 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                                                 customDialog.dismiss();
                                             });
                                     customDialog.show();
-
+                                    customDialog.findViewById(R.id.btnEnglish).setOnClickListener(view -> {
+                                        // translate here
+                                    });
+                                    customDialog.findViewById(R.id.btnFrance).setOnClickListener(view -> {
+                                        // translate here
+                                    });
+                                    customDialog.findViewById(R.id.btnSpain).setOnClickListener(view -> {
+                                        // translate here
+                                    });
+                                    customDialog.findViewById(R.id.btnJapanese).setOnClickListener(view -> {
+                                        // translate here
+                                    });
+                                    customDialog.findViewById(R.id.btnKorean).setOnClickListener(view -> {
+                                        // translate here
+                                    });
                                 }
                             })
                             .addOnFailureListener(

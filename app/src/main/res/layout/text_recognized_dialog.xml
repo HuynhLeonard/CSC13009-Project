@@ -7,6 +7,50 @@
     android:theme="@style/customBackgroundSecond"
     android:background="@drawable/rounded_corners">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:theme="@style/customBackgroundSecond">
+        <Button
+            android:id="@+id/btnEnglish"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="@drawable/styled_button"
+            android:text="Eng"/>
+
+        <Button
+            android:id="@+id/btnFrance"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/btnEnglish"
+            android:background="@drawable/styled_button"
+            android:text="FR"/>
+
+        <Button
+            android:id="@+id/btnSpain"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/btnFrance"
+            android:background="@drawable/styled_button"
+            android:text="ESP"/>
+
+        <Button
+            android:id="@+id/btnKorean"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/btnSpain"
+            android:background="@drawable/styled_button"
+            android:text="KOR"/>
+
+        <Button
+            android:id="@+id/btnJapanese"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/btnKorean"
+            android:background="@drawable/styled_button"
+            android:text="JPN"/>
+    </RelativeLayout>
+
     <EditText
         android:id="@+id/text_recognized"
         android:layout_width="match_parent"

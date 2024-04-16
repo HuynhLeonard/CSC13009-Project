@@ -69,4 +69,7 @@ dependencies {
 
     implementation ("androidx.work:work-runtime:2.7.1")
     implementation ("com.google.androidbrowserhelper:androidbrowserhelper:2.5.0")
+
+    // for translate languauge (english only)
+    implementation("com.google.mlkit:translate:17.0.2")
 }
