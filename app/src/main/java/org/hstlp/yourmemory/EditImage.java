@@ -38,7 +38,7 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
     ImageButton edit_cancel;
     ImageButton edit_confirm;
     ImageButton edit_reset;
-    LinearLayout transform_btn, filter_btn, blur_btn;
+    LinearLayout transform_btn, filter_btn, blur_btn, contrast_btn, bright_btn;
     ImageView edit_img;
     FragmentTransaction ft;
     EditTransformFragment transformFragment;
@@ -150,6 +150,26 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             ft = getSupportFragmentManager().beginTransaction();
             filterFragment = EditFilterFragment.newInstance(listName, listImage);
             ft.replace(R.id.fragment_function_btns, filterFragment);
+            ft.commit();
+        });
+
+        contrast_btn.setOnClickListener(view -> {
+            linearView.setVisibility(View.INVISIBLE);
+            fragmentLayoutDisplay.setVisibility(View.VISIBLE);
+            edit_nav.setVisibility(View.GONE);
+            ft = getSupportFragmentManager().beginTransaction();
+            blurFragment = BlurEditorFragment.makeNewInstance();
+            ft.replace(R.id.fragment_function_btns, blurFragment);
+            ft.commit();
+        });
+
+        bright_btn.setOnClickListener(view -> {
+            linearView.setVisibility(View.INVISIBLE);
+            fragmentLayoutDisplay.setVisibility(View.VISIBLE);
+            edit_nav.setVisibility(View.GONE);
+            ft = getSupportFragmentManager().beginTransaction();
+            blurFragment = BlurEditorFragment.makeNewInstance();
+            ft.replace(R.id.fragment_function_btns, blurFragment);
             ft.commit();
         });
     }

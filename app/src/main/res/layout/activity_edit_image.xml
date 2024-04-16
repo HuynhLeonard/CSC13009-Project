@@ -77,9 +77,9 @@
                 android:id="@+id/edit_transform_btn"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
                 android:gravity="center"
                 android:orientation="vertical"
+                android:layout_marginRight="15dp"
                 tools:ignore="UseCompoundDrawables,TextSizeCheck">
 
                 <ImageView
@@ -97,12 +97,12 @@
 
             <LinearLayout
                 android:id="@+id/edit_filter_btn"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                tools:ignore="UseCompoundDrawables"
+                android:layout_marginRight="15dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -120,12 +120,12 @@
 
             <LinearLayout
                 android:id="@+id/blur_btn"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                tools:ignore="UseCompoundDrawables"
+                android:layout_marginRight="15dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -138,6 +138,53 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Blur"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contrast_btn"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables"
+                android:layout_marginRight="15dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/circle_half_stroke_solid"
+                    android:theme="@style/selectedImg"
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contrast"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bright_btn"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/sun_regular"
+                    android:theme="@style/selectedImg"
+                    android:adjustViewBounds="true"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bright"
                     tools:ignore="HardcodedText" />
             </LinearLayout>
         </LinearLayout>
