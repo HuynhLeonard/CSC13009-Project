@@ -72,4 +72,6 @@ dependencies {
 
     // for translate languauge (english only)
     implementation("com.google.mlkit:translate:17.0.2")
+
+    implementation ("com.google.code.gson:gson:2.8.9")
 }

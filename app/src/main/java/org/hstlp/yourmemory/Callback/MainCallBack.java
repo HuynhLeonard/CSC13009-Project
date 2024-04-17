@@ -26,4 +26,5 @@ public interface MainCallBack {
     void shareImages(ArrayList<String> paths);
     boolean getIsDark();
     void setIsDark(boolean status);
+
 }
