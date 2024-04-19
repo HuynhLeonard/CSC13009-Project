@@ -762,7 +762,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         }
 
         private class AlbumChoosingAdapter extends BaseAdapter {
-            ArrayList<Album> albumList;
+           ArrayList<Album> albumList;
 
             public AlbumChoosingAdapter() {
                 this.albumList = AlbumsFragment.albumList;
@@ -773,7 +773,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
                 return albumList.size();
             }
 
-            @Override
+           @Override
             public Object getItem(int i) {
                 return albumList.get(i);
             }
@@ -806,7 +806,6 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
                 }
                 return view;
             }
-
             private class ViewHolder {
                 TextView albumName;
                 TextView albumImageCount;
@@ -827,3 +826,5 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         dbManager.purgeDatabase();
     }
 }
+
+
