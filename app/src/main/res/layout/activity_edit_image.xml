@@ -153,7 +153,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/styled_button"
+                    android:src="@drawable/circle_half_stroke_solid"
                     android:theme="@style/selectedImg"
                     android:adjustViewBounds="true"
                     tools:ignore="ContentDescription" />
@@ -176,7 +176,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/styled_button"
+                    android:src="@drawable/sun_regular"
                     android:theme="@style/selectedImg"
                     android:adjustViewBounds="true"
                     tools:ignore="ContentDescription" />
