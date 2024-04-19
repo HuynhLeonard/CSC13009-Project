@@ -144,12 +144,10 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
         else{
             mainImageDisplay =(ImageDisplay) getSupportFragmentManager().getFragment(savedInstanceState, "f0");
         }
-        //AlbumsFragment.getInstance();
+        AlbumsFragment.getInstance();
         arrFrag[0] = mainImageDisplay;
-        arrFrag[1] = mainImageDisplay;
-        arrFrag[2] = mainImageDisplay;
-        //arrFrag[1] = AlbumHostingFragment.getInstance();
-        //arrFrag[2] = SearchHostingFragment.getInstance();
+        arrFrag[1] = AlbumHostingFragment.getInstance();
+        arrFrag[2] = SearchHostingFragment.getInstance();
 
         DCIM = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
         Picture = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
