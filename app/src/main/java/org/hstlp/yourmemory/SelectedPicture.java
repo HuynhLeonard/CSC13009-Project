@@ -103,6 +103,8 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
     TextRecognizer recognizer;
     TranslationUltility Translation;
 
+    String englishTranslation;
+
     @SuppressLint({"ClickableViewAccessibility", "SuspiciousIndentation"})
 
 
@@ -147,6 +149,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                                             }
                                             resultText += "\n";
                                         }
+                                        englishTranslation = resultText;
                                     }
                                     if (resultText.isEmpty()) {
                                         Toast.makeText(getApplicationContext(), "No text found", Toast.LENGTH_SHORT).show();
@@ -168,24 +171,25 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                                             });
                                     customDialog.show();
                                     customDialog.findViewById(R.id.btnEnglish).setOnClickListener(view -> {
-                                        // translate here
+                                        // back to english one
+                                        ((TextView) customDialog.findViewById(R.id.text_recognized)).setText(englishTranslation);
                                     });
                                     customDialog.findViewById(R.id.btnFrance).setOnClickListener(view -> {
                                         // translate here
                                         String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
-                                        Translation.translateFrance(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
+                                        Translation.translateFrance(englishTranslation, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                     customDialog.findViewById(R.id.btnSpain).setOnClickListener(view -> {
                                         String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
-                                        Translation.translateSpain(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
+                                        Translation.translateSpain(englishTranslation, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                     customDialog.findViewById(R.id.btnJapanese).setOnClickListener(view -> {
                                         String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
-                                        Translation.translateJapan(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
+                                        Translation.translateJapan(englishTranslation, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                     customDialog.findViewById(R.id.btnKorean).setOnClickListener(view -> {
                                         String translateText = ((TextView) customDialog.findViewById(R.id.text_recognized)).getText().toString();
-                                        Translation.translateKorea(translateText, (TextView) customDialog.findViewById(R.id.text_recognized));
+                                        Translation.translateKorea(englishTranslation, (TextView) customDialog.findViewById(R.id.text_recognized));
                                     });
                                 }
                             })
