@@ -5,6 +5,6 @@
 
     <!-- you can use any color you want I used here gray color-->
     <stroke android:color="@color/black"/>
-    <solid android:color="@color/green"/>
+    <solid android:color="@color/red_1"/>
     <corners android:radius="15dp"/>
 </shape>
