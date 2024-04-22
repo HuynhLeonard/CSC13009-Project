@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
                 fout.close();
 
                 file.setReadable(true, false);
-                Uri uri = FileProvider.getUriForFile(this, "com.example.YourMemory.provider", file); //Lấy đường dẫn uri của file
+                Uri uri = FileProvider.getUriForFile(this, "org.hstlp.yourmemory.provider", file); //Lấy đường dẫn uri của file
                 uriList.add(uri);
             }
 

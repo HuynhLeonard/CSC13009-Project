@@ -395,7 +395,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
                 file.setReadable(true, false);
 
                 Uri uri = FileProvider.getUriForFile(getApplicationContext(),
-                        "com.example.photosGroup3.provider", file);
+                        "org.hstlp.yourmemory.provider", file);
                 uris.add(uri);
             }
             Intent intent;
