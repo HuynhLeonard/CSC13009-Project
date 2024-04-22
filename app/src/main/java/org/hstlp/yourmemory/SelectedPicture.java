@@ -206,7 +206,7 @@ public class SelectedPicture extends AppCompatActivity implements IsSelectedPict
             if (rotateImage != null && imageRotated != null) {
 
                 String newImgPath = ImageDelete.saveImage(rotateImage, imageRotated);
-                mainImageDisplay.addNewImage(newImgPath, 0);
+                mainImageDisplay.addNewImage(newImgPath, 1);
                 Intent intent = new Intent();
                 setResult(2, intent);
                 finish();
