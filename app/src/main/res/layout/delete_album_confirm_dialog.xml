@@ -56,5 +56,4 @@
             android:theme="@style/dSelectedBtn"
             tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
     </LinearLayout>
-
 </LinearLayout>
