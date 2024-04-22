@@ -40,8 +40,8 @@
             android:layout_marginEnd="10dp"
             android:textColor="#ffffff"
             android:text="Cancel"
-            android:background="@drawable/styled_button"
-            android:theme="@style/dSelectedBtn"
+            android:background="@drawable/styled_button1"
+            android:theme="@style/dBackground"
             tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -53,7 +53,7 @@
             android:textColor="#ffffff"
             android:text="OK"
             android:background="@drawable/styled_button"
-            android:theme="@style/dSelectedBtn"
+            android:theme="@style/dBackground"
             tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
     </LinearLayout>
 </LinearLayout>
