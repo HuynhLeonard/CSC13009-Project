@@ -20,7 +20,7 @@
         android:id="@+id/delete_album_notify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Do you want to delete album &quot;album_name&quot; permanently in device ?"
+        android:text="Do you want to delete album &quot;album_name&quot; permanently in this device ?"
         android:layout_marginVertical="10dp"
         android:textSize="16dp"
         android:textAlignment="center"/>
