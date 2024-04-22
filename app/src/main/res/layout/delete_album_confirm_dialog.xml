@@ -32,24 +32,28 @@
         android:paddingTop="10dp"
         >
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/delete_album_cancel"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button_line"
-            android:src="@drawable/ic_baseline_close_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="#ffffff"
+            android:text="Cancel"
+            android:background="@drawable/styled_button"
+            android:theme="@style/dSelectedBtn"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/delete_album_confirm"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/button_line"
-            android:src="@drawable/ic_baseline_check_24"
-            tools:ignore="SpeakableTextPresentCheck" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="#ffffff"
+            android:text="OK"
+            android:background="@drawable/styled_button"
+            android:theme="@style/dSelectedBtn"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
     </LinearLayout>
-
 </LinearLayout>
