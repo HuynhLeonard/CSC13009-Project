@@ -53,6 +53,15 @@
         <activity android:name=".Ultilities.SlideShow" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".EditImage" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.hstlp.yourmemory.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
     </application>
 
 </manifest>
