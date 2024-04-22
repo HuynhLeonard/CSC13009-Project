@@ -39,7 +39,8 @@
                 android:src="@drawable/baseline_add_50"
                 android:theme="@style/customFloatBtnPri"
                 app:elevation="0dp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Large"/>
         </LinearLayout>
 
     </RelativeLayout>

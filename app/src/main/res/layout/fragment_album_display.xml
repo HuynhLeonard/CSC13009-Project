@@ -107,7 +107,8 @@
                 android:theme="@style/customFloatBtnPri"
                 app:backgroundTint="#DAE5D0"
                 app:elevation="0dp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Large"/>
         </LinearLayout>
 
     </RelativeLayout>
