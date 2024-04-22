@@ -102,6 +102,15 @@ public class MainActivity extends AppCompatActivity implements MainCallBack, Vie
             ".gif",
             ".jpeg"
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DCIM = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
+        Picture = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
+        initView();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         shareConfig = getSharedPreferences("AppPreferences", MODE_PRIVATE);

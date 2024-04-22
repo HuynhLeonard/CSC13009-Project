@@ -13,22 +13,22 @@
         android:theme="@style/customBackgroundSecond">
         <Button
             android:id="@+id/btnEnglish"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:background="@drawable/styled_button"
             android:backgroundTint="@color/space_grey"
             android:text="Eng"
-            android:layout_marginRight="22dp"/>
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/btnFrance"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_toRightOf="@id/btnEnglish"
             android:background="@drawable/styled_button"
             android:backgroundTint="@color/space_grey"
             android:text="FR"
-            android:layout_marginRight="22dp"/>
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/btnSpain"
@@ -38,21 +38,21 @@
             android:background="@drawable/styled_button"
             android:backgroundTint="@color/space_grey"
             android:text="ESP"
-            android:layout_marginRight="22dp"/>
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/btnKorean"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_toRightOf="@id/btnSpain"
             android:background="@drawable/styled_button"
             android:backgroundTint="@color/space_grey"
             android:text="KOR"
-            android:layout_marginRight="22dp"/>
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/btnJapanese"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/btnKorean"
             android:background="@drawable/styled_button"
@@ -63,7 +63,7 @@
     <EditText
         android:id="@+id/text_recognized"
         android:layout_width="match_parent"
-        android:layout_height="201dp"
+        android:layout_height="200dp"
         android:layout_margin="10dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
@@ -72,12 +72,12 @@
         android:padding="10dp"
         android:scrollbars="vertical"
         android:textSize="16sp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:background="@drawable/styled_button"
         android:textColor="#ffff"
         android:id="@+id/ok_button"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="OK"
         android:textSize="15sp"

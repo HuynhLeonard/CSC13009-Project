@@ -189,16 +189,10 @@ public class ImageDisplay extends Fragment implements ChooseAndDelete {
         activity.setSupportActionBar(toolbar);
         ActionBar actionBar = activity.getSupportActionBar();
         actionBar.setTitle(Html.fromHtml("<b>Photos</b>"));
-//        if (actionBar != null) {
-//            actionBar.setDisplayShowTitleEnabled(false);
-//        }
-
 
         recyclerView = view.findViewById(R.id.gridView);
-        //changeBtn = view.findViewById(R.id.resizeView);
         cardView = view.findViewById(R.id.cardView);
         fab_camera = view.findViewById(R.id.fab_Camera);
-        //sortBtn = view.findViewById(R.id.sortView);
         fab_expand = view.findViewById(R.id.fab_expand);
         fab_url = view.findViewById(R.id.fab_url);
         if (listAdapter == null) {
@@ -211,12 +205,6 @@ public class ImageDisplay extends Fragment implements ChooseAndDelete {
             gridlayoutManager = new GridLayoutManager(getContext(), 4);
         recyclerView.setLayoutManager(gridlayoutManager);
         recyclerView.setAdapter(listAdapter);
-//        PinchZoomItemTouchListener pinchZoomItemTouchListener = new PinchZoomItemTouchListener(getContext(), recyclerView, gridlayoutManager);
-//        recyclerView.addOnItemTouchListener(pinchZoomItemTouchListener);
-
-
-
-
 
         fab_camera.setOnClickListener(view12 -> openCamera());
 
@@ -232,11 +220,8 @@ public class ImageDisplay extends Fragment implements ChooseAndDelete {
                 fab_camera.setVisibility(View.INVISIBLE);
             }
         });
-
-        //header = view.findViewById(R.id.header);
-
-
     }
+
     // show download from url dialog
     private void showInputDialogBox() {
         final String[] url_input = {"", ""};
@@ -260,7 +245,7 @@ public class ImageDisplay extends Fragment implements ChooseAndDelete {
 
         customDialog.show();
     }
-    // phuc work this one again
+
     private void DownloadImageFromURL(String input, String fileName) {
         try {
             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(input));
@@ -284,7 +269,8 @@ public class ImageDisplay extends Fragment implements ChooseAndDelete {
             new NotificationCompat.Builder(requireContext(), "Download " + fullNameFile)
                     .setContentText("Downloaded item")
                     .setSmallIcon(R.drawable.ic_launcher_background).build();
-
+            images.add(images.size(), fullNameFile);
+            notifyChangeGridLayout();
         } catch (Exception e) {
             Toast.makeText(INSTANCE.getContext(), "Download error, please try again", Toast.LENGTH_SHORT).show();
         }
