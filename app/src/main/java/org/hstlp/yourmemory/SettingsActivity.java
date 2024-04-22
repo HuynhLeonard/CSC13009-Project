@@ -26,17 +26,34 @@ public class SettingsActivity extends Activity{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        sharePrf = getSharedPreferences("AppPreferences", MODE_PRIVATE);    // get the value here
+        sharePrf = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         edit = sharePrf.edit();
-        // get dark mode status
         boolean status = sharePrf.getBoolean("darkmode", false);
         if (status) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-        super.onCreate(savedInstanceState);
 
-        // content for setting fragment here
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_setting);
+        reAnalyse = findViewById(R.id.reanalyze);
+        analyse = findViewById(R.id.analyze);
+        changeDark = findViewById(R.id.switchDarkmode);
+
+        changeDark.setChecked(status);
+        changeDark.setOnCheckedChangeListener((compoundButton, isDark) -> {
+            MainActivity.mainActivity.setIsDark(isDark);
+            recreate();
+        });
+        reAnalyse.setOnClickListener(view -> {
+            MainActivity.mainActivity.purgeDatabase();
+            MainActivity.mainActivity.analyse();
+            Toast.makeText(this, "Reanalysing...", Toast.LENGTH_SHORT).show();
+        });
+        analyse.setOnClickListener(view -> {
+            MainActivity.mainActivity.analyse();
+            Toast.makeText(this, "Analysing...", Toast.LENGTH_SHORT).show();
+        });
     }
 }
