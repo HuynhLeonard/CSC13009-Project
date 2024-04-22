@@ -41,13 +41,13 @@ public class SlideShow extends AppCompatActivity{
 
             switch (nameMusic){
                 case "default 01":
-                    //rawMusic=R.raw.musicc;
+                    rawMusic=R.raw.musicedm;
                     break;
                 case "default 02":
-                    //rawMusic=R.raw.mono;
+                    rawMusic=R.raw.mono;
                     break;
                 case "default 03":
-                    //rawMusic=R.raw.st;
+                    rawMusic=R.raw.sontung;
                     break;
             }
 
