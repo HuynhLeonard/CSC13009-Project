@@ -128,7 +128,7 @@
         android:text="OK"
         android:textColor="#ffff"
         android:background="@drawable/styled_button"
-        android:theme="@style/dSelectedBtn"
+        android:theme="@style/dBackground1"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </LinearLayout>

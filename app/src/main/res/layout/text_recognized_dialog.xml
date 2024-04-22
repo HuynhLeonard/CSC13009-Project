@@ -16,7 +16,9 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:background="@drawable/styled_button"
-            android:text="Eng"/>
+            android:backgroundTint="@color/space_grey"
+            android:text="Eng"
+            android:layout_marginRight="22dp"/>
 
         <Button
             android:id="@+id/btnFrance"
@@ -24,7 +26,9 @@
             android:layout_height="40dp"
             android:layout_toRightOf="@id/btnEnglish"
             android:background="@drawable/styled_button"
-            android:text="FR"/>
+            android:backgroundTint="@color/space_grey"
+            android:text="FR"
+            android:layout_marginRight="22dp"/>
 
         <Button
             android:id="@+id/btnSpain"
@@ -32,7 +36,9 @@
             android:layout_height="40dp"
             android:layout_toRightOf="@id/btnFrance"
             android:background="@drawable/styled_button"
-            android:text="ESP"/>
+            android:backgroundTint="@color/space_grey"
+            android:text="ESP"
+            android:layout_marginRight="22dp"/>
 
         <Button
             android:id="@+id/btnKorean"
@@ -40,7 +46,9 @@
             android:layout_height="40dp"
             android:layout_toRightOf="@id/btnSpain"
             android:background="@drawable/styled_button"
-            android:text="KOR"/>
+            android:backgroundTint="@color/space_grey"
+            android:text="KOR"
+            android:layout_marginRight="22dp"/>
 
         <Button
             android:id="@+id/btnJapanese"
@@ -48,6 +56,7 @@
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/btnKorean"
             android:background="@drawable/styled_button"
+            android:backgroundTint="@color/space_grey"
             android:text="JPN"/>
     </RelativeLayout>
 
@@ -67,7 +76,8 @@
         android:background="@drawable/styled_button"
         android:textColor="#ffff"
         android:id="@+id/ok_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="40dp"
         android:text="OK"
         android:textSize="15sp"

@@ -88,6 +88,10 @@
         <item name="android:background">@color/dlmain</item>
     </style>
 
+    <style name="dBackground1">
+        <item name="android:background">@color/green</item>
+    </style>
+
     <style name="dSelectedBtn">
         <item name="android:backgroundTint">@color/dlmain</item>
         <item name="android:tint">?attr/colorOnPrimary</item>

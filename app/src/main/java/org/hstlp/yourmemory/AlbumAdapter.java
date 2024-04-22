@@ -102,7 +102,6 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
             setBackgroundColor(holder.itemView, null);
 
-            // Nếu là album Favourite
 //            if (albumList.get(position).name.equals(AlbumsFragment.favourite)) {
 //                holder.imageView.setImageResource(R.drawable.ic_baseline_favorite_24);
 //                return;

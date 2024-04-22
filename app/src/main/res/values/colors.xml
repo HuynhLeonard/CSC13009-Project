@@ -37,7 +37,7 @@
 
     <color name="select">#fefefe</color>
 
-
+    <color name="green">#52C383</color>
     <!--    color dialog-->
     <!--    dark mode-->
     <color name="ddmain">#65737e</color>

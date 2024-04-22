@@ -59,7 +59,7 @@
             android:textColor="#ffffff"
             android:background="@drawable/styled_button"
             android:text="Cancel"
-            android:backgroundTint="@color/space_grey"/>
+            android:backgroundTint="@color/red_1"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ok_button"

@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="@drawable/styled_button"
-            android:backgroundTint="@color/space_grey"
+            android:backgroundTint="@color/red_1"
             android:padding="10dp"
             android:text="Cancel"
             android:textColor="#ffffff" />

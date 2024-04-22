@@ -76,10 +76,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:backgroundTint="#BEBFBE"
+            android:backgroundTint="@color/red_1"
             android:elevation="15dp"
             android:text="Cancel"
-            android:textColor="#138A31" />
+            android:textColor="#EFEBEB" />
 
         <Button
             android:id="@+id/confirm_pass_button"
