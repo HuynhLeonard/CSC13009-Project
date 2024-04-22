@@ -70,22 +70,24 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
             Intent intent = new Intent(getApplicationContext(), SelectedPicture.class);
             intent.putExtra("images", temp);
             intent.putExtra("pos", 0);
-//            setResult(RESULT_OK, intent);
             MainActivity.mainImageDisplay.notifyChangeGridLayout();
             startActivity(intent);
             finish();
         });
+
         edit_reset.setOnClickListener(view -> {
             File imgFile = new File(imgName);
             editedImage = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             edit_img.setImageBitmap(editedImage);
         });
+
         imgName = getIntent().getStringExtra("imgPath");
         assert imgName != null;
         File imgFile = new File(imgName);
         editedImage = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
         edit_img.setImageBitmap(editedImage);
         edit_cancel.setOnClickListener(view -> finish());
+
         transform_btn.setOnClickListener(view -> {
             File tempDestination = createTempFile("cropped1");
             File tempFile = createTempFile("input");
@@ -120,15 +122,6 @@ public class EditImage extends AppCompatActivity implements EditImageCallbacks {
                     /**/.withOptions(options)
                     .withMaxResultSize(1000, 1000)
                     .start(this); // Use requireContext() to get the fragment's context
-
-
-//            linearView.setVisibility(View.INVISIBLE);
-//            fragmentLayoutDisplay.setVisibility(View.VISIBLE);
-//            edit_nav.setVisibility(View.GONE);
-//            ft = getSupportFragmentManager().beginTransaction();
-//            transformFragment = EditTransformFragment.newInstance();
-//            ft.replace(R.id.fragment_function_btns, transformFragment);
-//            ft.commit();
         });
 
         blur_btn.setOnClickListener(view -> {

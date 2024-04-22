@@ -50,6 +50,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Ultilities.SlideShow" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".EditImage" />

@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="10dp"
                 tools:ignore="UseCompoundDrawables,TextSizeCheck">
 
                 <ImageView
