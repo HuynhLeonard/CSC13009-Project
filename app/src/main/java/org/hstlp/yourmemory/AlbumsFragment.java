@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -200,8 +201,8 @@ public class AlbumsFragment extends Fragment {
             @SuppressLint("InflateParams") LinearLayout layout = (LinearLayout)
                     getLayoutInflater().inflate(R.layout.new_album_dialog, null);
 
-            ImageButton newBtn = layout.findViewById(R.id.new_alubum_button);
-            ImageButton cancelBtn = layout.findViewById(R.id.new_album_cancel);
+            AppCompatButton newBtn = layout.findViewById(R.id.new_album_button);
+            AppCompatButton cancelBtn = layout.findViewById(R.id.new_album_cancel);
             EditText nameFolder = layout.findViewById(R.id.new_album_name);
 
             newBtn.setOnClickListener(view -> {

@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add new Album"
+        android:text="Add New Album"
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -53,24 +53,30 @@
         android:orientation="horizontal">
 
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/new_album_cancel"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginRight="30dp"
-            android:src="@drawable/ic_baseline_close_24"
-            android:theme="@style/dSelectedBtn"
-            tools:ignore="RtlHardcoded,SpeakableTextPresentCheck"
-            android:importantForAccessibility="no" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="#ffffff"
+            android:text="Cancel"
+            android:background="@drawable/styled_button1"
+            android:theme="@style/dBackground"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
 
-        <ImageButton
-            android:id="@+id/new_alubum_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:src="@drawable/ic_baseline_check_24"
-            android:theme="@style/dSelectedBtn"
-            tools:ignore="ContentDescription,RtlHardcoded,SpeakableTextPresentCheck" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/new_album_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="#ffffff"
+            android:text="OK"
+            android:background="@drawable/styled_button"
+            android:theme="@style/dBackground"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
+
     </LinearLayout>
 
 </LinearLayout>
