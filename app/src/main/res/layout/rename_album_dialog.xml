@@ -25,36 +25,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:text="Album's name: "
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText" />
-
-    <EditText
-        android:id="@+id/old_album_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:editable="false"
-        android:ems="10"
-        android:inputType="none"
-        android:minWidth="400dp"
-        android:minHeight="48dp"
-        android:text="Old Album's Name"
-        android:textColor="@color/imageBtn"
-        tools:ignore="Autofill,Deprecated,HardcodedText,LabelFor,TextContrastCheck,VisualLintTextFieldSize" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:gravity="center_vertical"
-        android:text="New Album's  name: "
+        android:text="New Album's name: "
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
@@ -79,24 +50,29 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/rename_album_cancel"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/button_line"
-            android:src="@drawable/ic_baseline_close_24"
-            tools:ignore="ContentDescription,RtlHardcoded,SpeakableTextPresentCheck" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="#ffffff"
+            android:text="Cancel"
+            android:background="@drawable/styled_button1"
+            android:theme="@style/dBackground"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
 
-        <ImageButton
-            android:id="@+id/rename_alubum_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/button_line"
-            android:src="@drawable/ic_baseline_check_24"
-            tools:ignore="ContentDescription,RtlHardcoded,SpeakableTextPresentCheck" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rename_album_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="#ffffff"
+            android:text="OK"
+            android:background="@drawable/styled_button"
+            android:theme="@style/dBackground"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
     </LinearLayout>
 
 </LinearLayout>

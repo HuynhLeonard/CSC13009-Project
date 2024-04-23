@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -226,10 +227,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         public RenameAlbumDialog(@NonNull Context context) {
             super(context);
             @SuppressLint("InflateParams") LinearLayout layout = (LinearLayout) getLayoutInflater().inflate(R.layout.rename_album_dialog, null);
-            ImageButton renameBtn = layout.findViewById(R.id.rename_alubum_button);
-            ImageButton cancleBtn = layout.findViewById(R.id.rename_album_cancel);
-            EditText oldName = layout.findViewById(R.id.old_album_name);
-            oldName.setText(choosingAlbum.name);
+            AppCompatButton renameBtn = layout.findViewById(R.id.rename_album_button);
+            AppCompatButton cancelBtn = layout.findViewById(R.id.rename_album_cancel);
             EditText newName = layout.findViewById(R.id.rename_album_name);
             renameBtn.setOnClickListener(view -> {
                 int index = albumList.indexOf(choosingAlbum);
@@ -271,7 +270,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
                 adapter.notifyItemChanged(index);
                 dismiss();
             });
-            cancleBtn.setOnClickListener(view -> dismiss());
+            cancelBtn.setOnClickListener(view -> dismiss());
             setContentView(layout);
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.copyFrom(Objects.requireNonNull(getWindow()).getAttributes());

@@ -20,7 +20,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:gravity="center"
-            android:text="Album Editer"
+            android:text="Album Editor"
             android:textSize="25sp"
             android:textStyle="bold"
             tools:ignore="HardcodedText,TextSizeCheck" />
@@ -29,19 +29,19 @@
             android:id="@+id/album_rename_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cardview_light_background"
-            android:backgroundTint="@color/white"
+            android:background="#707070"
+            android:backgroundTint="#9A9A9A"
             android:paddingLeft="20dp"
             android:text="Rename"
             android:textAlignment="center"
-            android:textColor="#757575"
+            tools:background="#A5A5A5"
             tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/album_delete_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cardview_light_background"
+            android:background="#E18688"
             android:paddingLeft="20dp"
             android:text="Delete"
             android:textAlignment="center"
