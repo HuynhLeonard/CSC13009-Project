@@ -25,7 +25,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:text="Album's  name: "
+        android:text="Album's name: "
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />

@@ -11,10 +11,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:fontFamily="sans-serif-black"
+        android:paddingLeft="10dp"
         android:text="Settings"
         android:textSize="34sp"
-        android:layout_margin="20dp"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
@@ -44,22 +45,24 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Analyze new images"
         android:id="@+id/analyze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="2dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:background="#9DC69F"
+        android:text="Analyze new images" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Re Analyze all images"
         android:id="@+id/reanalyze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="2dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:background="#CF9898"
+        android:text="Re Analyze all images" />
 </LinearLayout>
